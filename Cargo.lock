@@ -714,19 +714,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "curve25519-dalek-ng"
-version = "4.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1c359b7249347e46fb28804470d071c921156ad62b3eef5d34e2ba867533dec8"
-dependencies = [
- "byteorder",
- "digest 0.9.0",
- "rand_core 0.6.4",
- "subtle-ng",
- "zeroize",
-]
-
-[[package]]
 name = "darling"
 version = "0.20.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -846,25 +833,13 @@ dependencies = [
 [[package]]
 name = "dlmalloc"
 version = "0.1.4"
-source = "git+https://github.com/gear-tech/dlmalloc-rust.git?rev=9135baa#9135baa728ef9a9a04a887998e019733c4b093af"
-dependencies = [
- "libc",
- "libc_print",
- "page_size 0.4.2",
- "static_assertions",
- "str-buf 2.0.5",
-]
-
-[[package]]
-name = "dlmalloc"
-version = "0.1.4"
 source = "git+https://github.com/gear-tech/dlmalloc-rust.git#15352f969112faa463302f2490bbb7f6e1cb904d"
 dependencies = [
  "libc",
  "libc-print",
- "page_size 0.6.0",
+ "page_size",
  "static_assertions",
- "str-buf 3.0.2",
+ "str-buf",
 ]
 
 [[package]]
@@ -1359,29 +1334,10 @@ dependencies = [
 
 [[package]]
 name = "galloc"
-version = "0.2.2"
-source = "git+https://github.com/gear-tech/gear?rev=946ac47#946ac47439c624dd002e3111dfff73d0c7aabbb9"
-dependencies = [
- "dlmalloc 0.1.4 (git+https://github.com/gear-tech/dlmalloc-rust.git?rev=9135baa)",
-]
-
-[[package]]
-name = "galloc"
 version = "1.0.1"
 source = "git+https://github.com/gear-tech/gear?tag=v1.0.1#a3fe307bd8e0bdef14b323c4e2361d7df824a5f2"
 dependencies = [
- "dlmalloc 0.1.4 (git+https://github.com/gear-tech/dlmalloc-rust.git)",
-]
-
-[[package]]
-name = "gcore"
-version = "0.2.2"
-source = "git+https://github.com/gear-tech/gear?rev=946ac47#946ac47439c624dd002e3111dfff73d0c7aabbb9"
-dependencies = [
- "gear-core-errors 0.1.0",
- "gsys 0.2.2",
- "parity-scale-codec",
- "static_assertions",
+ "dlmalloc",
 ]
 
 [[package]]
@@ -1389,9 +1345,9 @@ name = "gcore"
 version = "1.0.1"
 source = "git+https://github.com/gear-tech/gear?tag=v1.0.1#a3fe307bd8e0bdef14b323c4e2361d7df824a5f2"
 dependencies = [
- "gear-core-errors 1.0.1",
+ "gear-core-errors",
  "gear-stack-buffer",
- "gsys 1.0.1",
+ "gsys",
  "parity-scale-codec",
  "static_assertions",
 ]
@@ -1437,7 +1393,7 @@ dependencies = [
  "byteorder",
  "derive_more",
  "enum-iterator 1.4.1",
- "gear-core-errors 1.0.1",
+ "gear-core-errors",
  "gear-wasm-instrument",
  "hashbrown 0.14.1",
  "hex",
@@ -1460,12 +1416,12 @@ dependencies = [
  "derive_more",
  "gear-core",
  "gear-core-backend-codegen",
- "gear-core-errors 1.0.1",
+ "gear-core-errors",
  "gear-lazy-pages-common",
  "gear-sandbox",
  "gear-sandbox-env",
  "gear-wasm-instrument",
- "gsys 1.0.1",
+ "gsys",
  "log",
  "parity-scale-codec",
 ]
@@ -1478,16 +1434,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.37",
-]
-
-[[package]]
-name = "gear-core-errors"
-version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear?rev=946ac47#946ac47439c624dd002e3111dfff73d0c7aabbb9"
-dependencies = [
- "derive_more",
- "enum-iterator 1.4.1",
- "scale-info",
 ]
 
 [[package]]
@@ -1509,7 +1455,7 @@ dependencies = [
  "derive_more",
  "gear-core",
  "gear-core-backend",
- "gear-core-errors 1.0.1",
+ "gear-core-errors",
  "gear-lazy-pages-common",
  "gear-lazy-pages-interface",
  "gear-wasm-instrument",
@@ -1567,27 +1513,6 @@ dependencies = [
  "gear-wasm-instrument",
  "log",
  "sp-std",
-]
-
-[[package]]
-name = "gear-lib"
-version = "0.3.9"
-source = "git+https://github.com/gear-dapps/gear-lib?tag=0.3.9#86db1ea91aa5629fce9a365f72aba504a74460a4"
-dependencies = [
- "gear-lib-sr25519",
- "gstd 0.2.2",
- "hashbrown 0.14.1",
- "parity-scale-codec",
- "primitive-types",
- "scale-info",
-]
-
-[[package]]
-name = "gear-lib-sr25519"
-version = "0.3.9"
-source = "git+https://github.com/gear-dapps/gear-lib?tag=0.3.9#86db1ea91aa5629fce9a365f72aba504a74460a4"
-dependencies = [
- "schnorrkel 0.10.2",
 ]
 
 [[package]]
@@ -1811,34 +1736,15 @@ dependencies = [
 
 [[package]]
 name = "gstd"
-version = "0.2.2"
-source = "git+https://github.com/gear-tech/gear?rev=946ac47#946ac47439c624dd002e3111dfff73d0c7aabbb9"
-dependencies = [
- "bs58",
- "futures",
- "galloc 0.2.2",
- "gcore 0.2.2",
- "gear-core-errors 0.1.0",
- "gstd-codegen 0.1.0 (git+https://github.com/gear-tech/gear?rev=946ac47)",
- "hashbrown 0.13.2",
- "hex",
- "parity-scale-codec",
- "primitive-types",
- "scale-info",
- "static_assertions",
-]
-
-[[package]]
-name = "gstd"
 version = "1.0.1"
 source = "git+https://github.com/gear-tech/gear?tag=v1.0.1#a3fe307bd8e0bdef14b323c4e2361d7df824a5f2"
 dependencies = [
  "bs58",
  "futures",
- "galloc 1.0.1",
- "gcore 1.0.1",
- "gear-core-errors 1.0.1",
- "gstd-codegen 0.1.0 (git+https://github.com/gear-tech/gear?tag=v1.0.1)",
+ "galloc",
+ "gcore",
+ "gear-core-errors",
+ "gstd-codegen",
  "hashbrown 0.14.1",
  "hex",
  "parity-scale-codec",
@@ -1858,21 +1764,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "gstd-codegen"
-version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear?rev=946ac47#946ac47439c624dd002e3111dfff73d0c7aabbb9"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.37",
-]
-
-[[package]]
-name = "gsys"
-version = "0.2.2"
-source = "git+https://github.com/gear-tech/gear?rev=946ac47#946ac47439c624dd002e3111dfff73d0c7aabbb9"
-
-[[package]]
 name = "gsys"
 version = "1.0.1"
 source = "git+https://github.com/gear-tech/gear?tag=v1.0.1#a3fe307bd8e0bdef14b323c4e2361d7df824a5f2"
@@ -1887,7 +1778,7 @@ dependencies = [
  "derive_more",
  "env_logger",
  "gear-core",
- "gear-core-errors 1.0.1",
+ "gear-core-errors",
  "gear-core-processor",
  "gear-lazy-pages-interface",
  "gear-utils",
@@ -2243,14 +2134,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "libc_print"
-version = "0.1.16"
-source = "git+https://github.com/grishasobol/rust-libc-print.git#b300804809e7a5f1c8fab4d2d11bcea29217bc70"
-dependencies = [
- "libc",
-]
-
-[[package]]
 name = "libloading"
 version = "0.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2460,18 +2343,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "merlin"
-version = "3.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58c38e2799fc0978b65dfff8023ec7843e2330bb462f19198840b34b6582397d"
-dependencies = [
- "byteorder",
- "keccak",
- "rand_core 0.6.4",
- "zeroize",
-]
-
-[[package]]
 name = "miniz_oxide"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2652,16 +2523,6 @@ checksum = "624a8340c38c1b80fd549087862da4ba43e08858af025b236e509b6649fc13d5"
 
 [[package]]
 name = "page_size"
-version = "0.4.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eebde548fbbf1ea81a99b128872779c437752fb99f217c45245e1a61dcd9edcd"
-dependencies = [
- "libc",
- "winapi",
-]
-
-[[package]]
-name = "page_size"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "30d5b2194ed13191c1999ae0704b7839fb18384fa22e49b57eeaa97d79ce40da"
@@ -2795,9 +2656,8 @@ checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 name = "ping"
 version = "0.3.3"
 dependencies = [
- "gear-lib",
  "gear-wasm-builder",
- "gstd 1.0.1",
+ "gstd",
  "gtest",
  "ping-io",
 ]
@@ -2806,9 +2666,8 @@ dependencies = [
 name = "ping-io"
 version = "0.3.3"
 dependencies = [
- "gear-lib",
  "gmeta",
- "gstd 1.0.1",
+ "gstd",
  "primitive-types",
 ]
 
@@ -2818,7 +2677,7 @@ version = "0.3.3"
 dependencies = [
  "gear-wasm-builder",
  "gmeta",
- "gstd 1.0.1",
+ "gstd",
 ]
 
 [[package]]
@@ -3335,27 +3194,11 @@ dependencies = [
  "arrayvec 0.5.2",
  "curve25519-dalek 2.1.3",
  "getrandom 0.1.16",
- "merlin 2.0.1",
+ "merlin",
  "rand 0.7.3",
  "rand_core 0.5.1",
  "sha2 0.8.2",
  "subtle",
- "zeroize",
-]
-
-[[package]]
-name = "schnorrkel"
-version = "0.10.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "844b7645371e6ecdf61ff246ba1958c29e802881a749ae3fb1993675d210d28d"
-dependencies = [
- "arrayref",
- "arrayvec 0.7.4",
- "curve25519-dalek-ng",
- "merlin 3.0.0",
- "rand_core 0.6.4",
- "sha2 0.9.9",
- "subtle-ng",
  "zeroize",
 ]
 
@@ -3645,14 +3488,14 @@ dependencies = [
  "lazy_static",
  "libsecp256k1",
  "log",
- "merlin 2.0.1",
+ "merlin",
  "parity-scale-codec",
  "parking_lot",
  "primitive-types",
  "rand 0.8.5",
  "regex",
  "scale-info",
- "schnorrkel 0.9.1",
+ "schnorrkel",
  "secp256k1",
  "secrecy",
  "serde",
@@ -3763,10 +3606,10 @@ source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0
 dependencies = [
  "async-trait",
  "futures",
- "merlin 2.0.1",
+ "merlin",
  "parity-scale-codec",
  "parking_lot",
- "schnorrkel 0.9.1",
+ "schnorrkel",
  "sp-core",
  "sp-externalities",
  "thiserror",
@@ -4039,7 +3882,7 @@ version = "0.3.3"
 dependencies = [
  "gear-wasm-builder",
  "gmeta",
- "gstd 1.0.1",
+ "gstd",
  "gtest",
  "staking-io",
 ]
@@ -4049,7 +3892,7 @@ name = "staking-io"
 version = "0.3.3"
 dependencies = [
  "gmeta",
- "gstd 1.0.1",
+ "gstd",
 ]
 
 [[package]]
@@ -4058,7 +3901,7 @@ version = "0.3.3"
 dependencies = [
  "gear-wasm-builder",
  "gmeta",
- "gstd 1.0.1",
+ "gstd",
  "staking-io",
 ]
 
@@ -4067,12 +3910,6 @@ name = "static_assertions"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
-
-[[package]]
-name = "str-buf"
-version = "2.0.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0873cb29201126440dcc78d0b1f5a13d917e78831778429a7920ca9c7f3dae1e"
 
 [[package]]
 name = "str-buf"
@@ -4088,7 +3925,7 @@ checksum = "49eee6965196b32f882dd2ee85a92b1dbead41b04e53907f269de3b0dc04733c"
 dependencies = [
  "hmac 0.11.0",
  "pbkdf2 0.8.0",
- "schnorrkel 0.9.1",
+ "schnorrkel",
  "sha2 0.9.9",
  "zeroize",
 ]
@@ -4098,12 +3935,6 @@ name = "subtle"
 version = "2.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6bdef32e8150c2a081110b42772ffe7d7c9032b606bc226c8260fd97e0976601"
-
-[[package]]
-name = "subtle-ng"
-version = "2.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "734676eb262c623cec13c3155096e08d1f8f29adce39ba17948b18dad1e54142"
 
 [[package]]
 name = "syn"
@@ -4132,7 +3963,7 @@ name = "tamagotchi"
 version = "0.3.3"
 dependencies = [
  "gear-wasm-builder",
- "gstd 1.0.1",
+ "gstd",
  "tamagotchi-io",
 ]
 
@@ -4140,9 +3971,8 @@ dependencies = [
 name = "tamagotchi-io"
 version = "0.3.3"
 dependencies = [
- "gear-lib",
  "gmeta",
- "gstd 1.0.1",
+ "gstd",
  "primitive-types",
 ]
 
@@ -4152,7 +3982,7 @@ version = "0.3.3"
 dependencies = [
  "gear-wasm-builder",
  "gmeta",
- "gstd 1.0.1",
+ "gstd",
  "tamagotchi-io",
 ]
 

@@ -1,7 +1,9 @@
 #![no_std]
 
 use gmeta::{InOut, Metadata, In};
-use gstd::{prelude::*, ActorId, collections::BTreeMap,msg, exec, errors::Error };
+use gstd::{prelude::*, ActorId, collections::BTreeMap,msg, exec };
+
+/* <- Borra
 
 use gear_lib::non_fungible_token::{
     io::{NFTApproval, NFTTransfer, NFTTransferPayout},
@@ -10,6 +12,8 @@ use gear_lib::non_fungible_token::{
     token::{TokenId, TokenMetadata},
 };
 use primitive_types::H256;
+
+Borra   -> */ 
 
 
 pub type NftContractId = ActorId;
@@ -31,12 +35,31 @@ impl Metadata for DemoPingMetadata {
     type State = InOut<RutzoStateQuery, RutzoStateReply>;//Out<Vec<String>>;
 }
 
+#[derive(Default, Encode, Decode, TypeInfo)]
+#[codec(crate = gstd::codec)]
+#[scale_info(crate = gstd::scale_info)]
+pub enum RutzoStateQuery{
+    GetText,
+    GetNumber,
+    #[default]
+    All
+}
+
+#[derive(Encode, Decode, TypeInfo)]
+#[codec(crate = gstd::codec)]
+#[scale_info(crate = gstd::scale_info)]
+pub enum RutzoStateReply {
+    Text(String),
+    Number(u64),
+    All(Vec<String>)
+}
+
 #[derive(Encode, Decode, TypeInfo)]
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
 pub enum RutzoAction {
     PlayGame {
-        token_id: TokenId,
+        //token_id: TokenId,
         power: String
     },
     MintCard {
@@ -46,10 +69,10 @@ pub enum RutzoAction {
     Register,
     
     AddNftForSale {
-        token_metadata: TokenMetadata
+        //token_metadata: TokenMetadata
     },
     
-    BuyNFT(TokenId),
+    //BuyNFT(TokenId),
     ApproveMinter(ActorId),
     DelegateApprovedUser(ActorId)
 }
@@ -95,25 +118,6 @@ pub enum RutzoEvent {
  #[derive(Default, Encode, Decode, TypeInfo)]
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
-pub enum RutzoStateQuery{
-    GetText,
-    GetNumber,
-    #[default]
-    All
-}
-
-#[derive(Encode, Decode, TypeInfo)]
-#[codec(crate = gstd::codec)]
-#[scale_info(crate = gstd::scale_info)]
-pub enum RutzoStateReply {
-    Text(String),
-    Number(u64),
-    All(Vec<String>)
-}
-
- #[derive(Default, Encode, Decode, TypeInfo)]
-#[codec(crate = gstd::codec)]
-#[scale_info(crate = gstd::scale_info)]
 pub enum PingStateQuery {
     GetText,
     GetNumber,
@@ -130,6 +134,7 @@ pub enum PingStateReply {
     Number(u64)
 }
 
+
 #[derive(Encode, Decode, TypeInfo)]
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
@@ -139,6 +144,9 @@ pub struct InitContractData {
 }
 
 /*
+
+Ignora de aqui en adelante, es codigo para checar --------------------------------------
+
 #[derive(Encode, Decode, TypeInfo)]
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
@@ -148,6 +156,7 @@ pub struct InitContractData {
 }
 */
 
+/*
 
 #[derive(Encode, Decode, TypeInfo)]
 #[codec(crate = gstd::codec)]
@@ -165,7 +174,6 @@ pub struct UserDataState {
     past_games: Vec<u64>,
 }
 
-/*
 impl From<UserGameData> for UserDataState {
     fn from(value: UserGameData) -> Self {
         let current_game = if let Some(game_id) = value.current_game {

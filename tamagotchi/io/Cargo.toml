@@ -7,5 +7,5 @@ publish.workspace = true
 [dependencies]
 gmeta.workspace = true
 gstd.workspace = true
-gear-lib.workspace = true
+#gear-lib.workspace = true
 primitive-types.workspace = true

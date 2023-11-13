@@ -7,7 +7,7 @@ publish.workspace = true
 [dependencies]
 gstd.workspace = true
 ping-io.workspace = true
-gear-lib.workspace = true
+#gear-lib.workspace = true  <- Descomenta
 
 [dev-dependencies]
 gtest.workspace = true
